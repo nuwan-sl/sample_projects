@@ -1,0 +1,52 @@
+<head th:fragment="head">
+
+<meta charset="ISO-8859-1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>::: Spring Boot + Thymeleaf + Spring security + Ajax +
+	JQuery :::</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" th:href="@{main.css}" href="main.css" />
+<script src="jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<script src="app.js"></script>
+<script src="common.js"></script>
+
+</head>
+
+<nav class="navbar navbar-inverse" th:fragment="loginHeader">
+
+	<div id="webBase" th:text="${webbase}"></div>
+	<div class="container">
+		<div class="navbar-header">
+			<span class="navbar-brand" href="#"
+				th:text="'User: ' + ${loginuser} +. "></span> <a href="/logout">LogOut</a>
+		</div>
+	</div>
+</nav>
+
+
+
+<!-- Modal -->
+<div id="popDivContainer" class="hidePopUp" th:fragment="claimPoup">
+	<div class="modal fade in" id="myModal" role="dialog"
+		style="display: block;">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close clsPoup" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">My Claims</h4>
+				</div>
+				<div class="modal-body">
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default clsPoup" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

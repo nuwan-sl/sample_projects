@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8"></meta>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"></meta>
+  <title>Login Form</title>
+
+  <link rel="stylesheet" type="text/css" href="main.css"></link>
+</head>
+<body class="bodyLogin">
+  <div class="loginPage">
+
+  <section class="container">
+    <div class="logo">
+      
+   </div>
+    <div class="login">
+      <h1>Login to Support Bills</h1>
+      <form method="post" action="process" onsubmit="myFunction()">
+       <!--  <p><input type="text" name="code" id="code" placeholder="Supplier Code"></input></p> -->
+        <p><input type="text" name="usernameTxt" id="usernameTxt" placeholder="Username" required="required"></input></p>
+        <input type="hidden" name="username" id="username"></input>
+        <p><input type="password" name="password" id="password" placeholder="Password" required="required"></input></p>
+            <input type="hidden" name="_csrf" id="_csrf" th:value="${_csrf}"></input>
+      
+        <p th:if="${error=='true'}"><span style=" color: red;">* Incorrect username or password</span></p>
+      
+        <p class="submit"><input type="submit" name="commit" value="Login"></input></p>
+      </form>
+    </div>
+
+    <div class="login-help">
+      <p>© Copyright 2016 by CodeGen. All Rights Reserved. </p>
+    </div>
+  </section>
+</div>
+
+<script th:inline="javascript">
+        /*<![CDATA[*/
+          function myFunction(){
+               
+              //var supplierCode =   document.getElementById('code').value;
+              var usernameTxt =   document.getElementById('usernameTxt').value;
+              var username = usernameTxt;
+              //if(supplierCode!=null && supplierCode!=''){
+                  //username = supplierCode + '|'+ username;
+              //}
+              
+              document.getElementById('username').value = username;
+        }
+       
+         
+        /*]]>*/
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base :: head">
+	<title>::: Spring Boot +  Thymeleaf  + Spring security  + Ajax + JQuery :::</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+	<div th:replace="fragments/base :: loginHeader"></div>
+
+	<div class="container">
+
+		<div class="starter-template">
+			<h1>Search Claims</h1>
+		</div>
+
+		<form class="form-horizontal" action="searchClaim" method="get">
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="user">First Name:</label>
+				<input type="text" id="user" name="user" />
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button class="btn btn-default" id="submit" type="submit">Search</button>
+				</div>
+			</div>
+
+		</form>
+
+		<div class="container"
+			th:if="${userResults !=null} and ${#lists.size(userResults) &gt; 0}">
+			<h2>User Results</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Firstname</th>
+						<th>Lastname</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="user : ${userResults}" th:onclick="'javascript:openClaim(\'' + ${user.firstName} + '\');'">
+						<td th:text="${user.firstName}">Jill</td>
+						<td th:text="${user.lastName}">Jill</td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		
+		<div th:replace="fragments/base :: claimPoup">
+		</div>
+
+
+	</div>
+</body>
+</html>
